@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML, CSS, Animation">
+    <meta name="author" content="Mercè Casamitjana">
+    <link rel="stylesheet" href="style.css">
+    <title>StopBall</title>
+  </head>
+  <body>
+    <header>
+      <img src="brand.png" alt="">
+      <a href="https://github.com/Merce-ksa?tab=repositories" target="_blank">
+        <span class="icon-github"></span>
+      </a>
+    </header>
+
+    <main class="game__content">
+      <section class="game__scoreboard">
+        <div class="scoreboard_content">
+          <p class="score_title">Intentos</p>
+          <div class="board">
+            <p id="attempt">0</p>
+          </div>
+        </div>
+
+        <div class="scoreboard_content">
+          <p class="score_title">Aciertos</p>
+          <div class="board">
+            <p id="score">0</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="game__ring-ball">
+        <div class="game__ring">
+          <div class="ring" id="ring"></div>
+        </div>
+
+        <div class="game__ball">
+          <div id="ball" class="ball"></div>
+          <div class="buttons-stop">
+            <button type="button" name="pause" id="pause" class="btn btn_pause">
+              <span class="icon-pan_tool"></span>
+            </button>
+            <button type="button" name="play" id="play" class="btn btn_play">
+              <span class="icon-media-play"></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="game__control-buttons">
+        <div class="button__level">
+          <button type="button" name="minus" id="minus" class="btn control">
+            <span class="icon-minus"></span>
+          </button>
+          <div class="level">
+            <p id="level">1</p>
+          </div>
+          <button type="button" name="plus" id="plus" class="btn control">
+            <span class="icon-plus"></span>
+          </button>
+        </div>
+        <button type="button" name="replay" id="replay" class="btn control">
+          <span class="icon-replay"></span>
+        </button>
+      </section>
+
+
+
+      <script type="text/javascript" src="js.js"></script>
+    </main>
+
+  </body>
+</html>

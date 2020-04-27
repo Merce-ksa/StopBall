@@ -1,0 +1,293 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: 'stopBall';
+  src:  url('fonts/stopBall.eot?941nwe');
+  src:  url('fonts/stopBall.eot?941nwe#iefix') format('embedded-opentype'),
+    url('fonts/stopBall.ttf?941nwe') format('truetype'),
+    url('fonts/stopBall.woff?941nwe') format('woff'),
+    url('fonts/stopBall.svg?941nwe#stopBall') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'stopBall' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-plus:before {
+  content: "\e902";
+}
+.icon-minus:before {
+  content: "\e903";
+}
+.icon-media-pause:before {
+  content: "\e904";
+}
+.icon-refresh:before {
+  content: "\e905";
+}
+.icon-media-rewind:before {
+  content: "\e906";
+}
+.icon-media-stop:before {
+  content: "\e907";
+}
+.icon-media-record:before {
+  content: "\e908";
+}
+.icon-media-play:before {
+  content: "\e909";
+}
+.icon-media-fast-forward:before {
+  content: "\e90a";
+}
+.icon-replay:before {
+  content: "\e900";
+}
+.icon-rotate_left:before {
+  content: "\e901";
+}
+.icon-rotate_right:before {
+  content: "\e90d";
+}
+.icon-settings_backup_restore:before {
+  content: "\e90b";
+}
+.icon-pan_tool:before {
+  content: "\e90c";
+}
+
+:root {
+--pink: rgb(242, 121, 165);
+--blue: rgb(51, 112, 191);
+--green: rgb(56, 165, 114);
+--yellow: rgb(216, 175, 49);
+--orange: rgb(242, 82, 46);
+--black: rgb(0, 0, 0);
+--white: rgb(255, 255, 255);
+
+--Font: 'Montserrat', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--Font);
+  background: rgb(56, 67, 189);
+}
+
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+header img {
+  width: auto;
+  max-width: 400px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+header a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+header a span {
+  font-size: 60px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.game__content {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-rows: 280px 1fr 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__ring-ball {
+  width: 100%;
+  height: auto;
+  padding: 20px 0;
+}
+
+.game__ring {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ring {
+  width: 180px;
+  height: 180px;
+  margin: 20px 0;
+  border-radius: 50%;
+  z-index: 2;
+  border: 4px solid yellow;
+}
+
+.game__ball {
+  width: 100%;
+  min-width: 1200px;
+  height: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.ball {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: relative;
+  left: -700px;
+  top: -190px;
+  z-index: 1;
+  /* bottom: 228px; */
+  background-color: var(--pink);
+}
+
+.btn {
+  border-radius: 10px;
+  background-color: #021E73;
+  border: none;
+  outline: 0;
+  box-shadow: inset 0 -0.5em rgba(0,0,0, .2);
+  cursor: pointer;
+  transition: 0.2s;
+  will-change: transform;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.btn_pause, .btn_play{
+  width: 250px;
+  height: auto;
+  padding: 15px 0;
+  position: relative;
+  top: 20px;
+  left: -75px;
+  margin-top: 10px;
+}
+
+.btn_pause {
+  position: relative;
+  display: none;
+}
+
+.btn_pause span, .btn_play span {
+  font-size: 100px;
+  color: var(--pink);
+}
+
+.game__control-buttons {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.control {
+  padding: 10px 35px;
+  margin: 0 5px;
+}
+
+.control span {
+  font-size: 45px;
+  color: var(--pink);
+}
+
+.button__level{
+  display: flex;
+}
+
+.level {
+  width: 100px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.level p{
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  text-align: center;
+  color: pink;
+}
+
+.btn_inactive{
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.btn_inactive span{
+  color: rgba(242, 121, 165, 0.5);
+}
+
+.btn_inactive:active{
+  transform: scale(1);
+}
+
+.game__scoreboard {
+  display: flex;
+  margin: auto;
+  border-radius: 20px;
+  background-color: #021E73;
+  /* border: 2px solid var(--blue); */
+}
+.scoreboard_content {
+  margin: 20px;
+  text-align: center;
+  /* border: 2px solid var(--orange); */
+}
+
+.score_title {
+  font-size: 30px;
+  color: white;
+}
+
+.board {
+  width: 120px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.board p{
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  color: var(--pink);
+}
