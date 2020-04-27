@@ -73,12 +73,12 @@
   content: "\e90c";
 }
 
+
 :root {
 --pink: rgb(242, 121, 165);
---blue: rgb(51, 112, 191);
---green: rgb(56, 165, 114);
---yellow: rgb(216, 175, 49);
---orange: rgb(242, 82, 46);
+--blue1: rgb(56, 67, 189);
+--blue2: rgba(2, 30, 114, 1);
+--yellow: rgb(255,255,0);
 --black: rgb(0, 0, 0);
 --white: rgb(255, 255, 255);
 
@@ -91,7 +91,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--Font);
-  background: rgb(56, 67, 189);
+  background: var(--blue1);
 }
 
 header {
@@ -100,13 +100,15 @@ header {
   display: flex;
   margin: auto;
   justify-content: space-between;
+  position: relative;
+  z-index: 5;
   align-items: center;
   box-sizing: border-box;
 }
 
 header img {
   width: auto;
-  max-width: 400px;
+  max-width: 300px;
   margin-left: 20px;
   margin-top: 20px;
 }
@@ -117,7 +119,7 @@ header a {
 }
 
 header a span {
-  font-size: 60px;
+  font-size: 40px;
   margin-right: 20px;
   margin-top: 20px;
 }
@@ -126,9 +128,99 @@ header a span {
   width: 100%;
   height: auto;
   display: grid;
-  grid-template-rows: 280px 1fr 200px;
+  grid-template-rows: 200px 1fr 80px;
+  position: relative;
+  top: -80px;
   justify-content: center;
   align-items: center;
+}
+
+.game__scoreboard {
+  display: flex;
+  margin: auto;
+  border-radius: 20px;
+  background-color: var(--blue2);
+}
+.scoreboard_content {
+  margin: 15px;
+  text-align: center;
+}
+
+.score_title {
+  margin: 5px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.board {
+  width: 80px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.board p{
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  color: var(--pink);
+}
+
+.score-overlay {
+  height: 10%;
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 300px;
+  z-index: 100;
+  margin: auto;
+  text-align: center;
+  font-weight: 700;
+  opacity: 0;
+}
+
+.score-overlay:nth-child(2) {
+  animation: scoreMove 0.75s linear;
+}
+
+.score-overlay:nth-child(3) {
+  width: 300px;
+  left: 570px;
+  animation: messageMove 1s linear;
+  animation-delay: 0.7s;
+}
+
+@keyframes scoreMove {
+  0%{
+    opacity: 1;
+    top: 300px;
+    left: 0;
+  }50%{
+    opacity: 1;
+  }100%{
+    opacity: 0;
+    top: 100px;
+    left: 95px;
+  }
+}
+
+@keyframes messageMove {
+  0%{
+    opacity: 1;
+  }50%{
+    opacity: 1;
+  }100%{
+    opacity: 0;
+    top: 400px;
+    left: 600px;
+    transform: scale(1.5);
+  }
 }
 
 .game__ring-ball {
@@ -150,12 +242,11 @@ header a span {
   margin: 20px 0;
   border-radius: 50%;
   z-index: 2;
-  border: 4px solid yellow;
+  border: 4px solid var(--yellow);
 }
 
 .game__ball {
   width: 100%;
-  min-width: 1200px;
   height: 100%;
   display: flex;
   margin: auto;
@@ -167,19 +258,18 @@ header a span {
   height: 150px;
   border-radius: 50%;
   position: relative;
-  left: -700px;
+  left: -400px;
   top: -190px;
   z-index: 1;
-  /* bottom: 228px; */
   background-color: var(--pink);
 }
 
 .btn {
   border-radius: 10px;
-  background-color: #021E73;
+  background-color: var(--blue2);
   border: none;
   outline: 0;
-  box-shadow: inset 0 -0.5em rgba(0,0,0, .2);
+  box-shadow: inset 0 -5px rgba(0,0,0, .2);
   cursor: pointer;
   transition: 0.2s;
   will-change: transform;
@@ -190,9 +280,9 @@ header a span {
 }
 
 .btn_pause, .btn_play{
-  width: 250px;
+  width: 150px;
   height: auto;
-  padding: 15px 0;
+  padding: 10px 0 15px 0;
   position: relative;
   top: 20px;
   left: -75px;
@@ -205,12 +295,11 @@ header a span {
 }
 
 .btn_pause span, .btn_play span {
-  font-size: 100px;
+  font-size: 60px;
   color: var(--pink);
 }
 
 .game__control-buttons {
-  width: 60%;
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
@@ -222,12 +311,13 @@ header a span {
 }
 
 .control span {
-  font-size: 45px;
+  font-size: 30px;
   color: var(--pink);
 }
 
 .button__level{
   display: flex;
+  margin-right: 50px;
 }
 
 .level {
@@ -237,9 +327,9 @@ header a span {
 }
 
 .level p{
-  margin: 0;
+  margin: 5px 0;
   padding: 0;
-  font-size: 50px;
+  font-size: 35px;
   text-align: center;
   color: pink;
 }
@@ -254,40 +344,4 @@ header a span {
 
 .btn_inactive:active{
   transform: scale(1);
-}
-
-.game__scoreboard {
-  display: flex;
-  margin: auto;
-  border-radius: 20px;
-  background-color: #021E73;
-  /* border: 2px solid var(--blue); */
-}
-.scoreboard_content {
-  margin: 20px;
-  text-align: center;
-  /* border: 2px solid var(--orange); */
-}
-
-.score_title {
-  font-size: 30px;
-  color: white;
-}
-
-.board {
-  width: 120px;
-  height: 140px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-}
-
-.board p{
-  margin: 0;
-  padding: 0;
-  font-size: 50px;
-  color: var(--pink);
 }

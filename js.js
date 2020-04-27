@@ -16,15 +16,18 @@ var current_level = txt_level.textContent
 var count_attempt = attempt.textContent
 var count_score = score.textContent
 
+const point = document.getElementById('score-point')
+const message = document.getElementById('score-message')
+
 const moveBall = ball.animate([
   {
-    transform: 'translateX(150px)'
+    transform: 'translateX(0px)'
   },
   {
-    transform: 'translateX(1400px)'
+    transform: 'translateX(950px)'
   }
 ],{
-    duration: 2000,
+    duration: 2500,
     delay: 0,
     direction: 'alternate',
     easing: 'linear',
@@ -36,6 +39,9 @@ const moveBall = ball.animate([
   moveBall.pause()
   moveBall.playbackRate = 1
   bt_minus.classList.add('btn_inactive')
+  // point.classList.remove('score-overlay')
+  // message.classList.remove('score-overlay')
+
 
   bt_plus.addEventListener('click', function(event){
     if (current_level < 5){
@@ -76,9 +82,12 @@ const moveBall = ball.animate([
     const ball_right = ball.getBoundingClientRect().right
 
     if(ring_left < ball_left && ball_right < ring_right){
+
       console.log('Has ganado')
       count_score++
       score.textContent = count_score
+      point.style.display = 'block'
+      message.style.display = 'block'
 
     }else{
       console.log('has perdido')
@@ -91,23 +100,27 @@ const moveBall = ball.animate([
   bt_play.addEventListener('click', (event) => {
     bt_pause.style.display = 'block'
     bt_play.style.display = 'none'
+    point.style.display = 'none'
+    message.style.display = 'none'
     moveBall.play()
   })
 
-  bt_replay.addEventListener('click', function(event){
+  bt_replay.addEventListener('click', function(event) {
+
+    moveBall.cancel()
 
     bt_pause.style.display = 'none'
     bt_play.style.display = 'block'
-    moveBall.cancel()
 
-    bt_minus.classList.add('btn_inactive')
-    bt_plus.classList.remove('btn_inactive')
     current_level = 1
     txt_level.textContent = current_level
+    bt_minus.classList.add('btn_inactive')
+    bt_plus.classList.remove('btn_inactive')
 
     moveBall.playbackRate = 1
+
     count_attempt = 0;
-    attempt.textContent = count_attempt
     count_score = 0;
+    attempt.textContent = count_attempt
     score.textContent = count_score
   })
