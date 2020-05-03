@@ -16,20 +16,20 @@
     </header>
 
     <main class="game__content">
+
       <section class="game__scoreboard">
         <div class="scoreboard_content">
-          <p class="score_title">Fallos</p>
+          <p class="score_title">Puntuación</p>
           <div class="board">
-            <p id="attempt">0</p>
+            <p id="score" class="board-txt">0</p>
+            <p id="score-point" class="score-overlay"></p>
           </div>
         </div>
 
         <div class="scoreboard_content">
-          <p class="score_title">Aciertos</p>
+          <p class="score_title">Récord</p>
           <div class="board">
-            <p id="score">0</p>
-            <p id="score-point" class="score-overlay">+1</p>
-            <p id="score-message" class="score-overlay">¡Sigue así!</p>
+            <p id="max_score" class="board-txt"></p>
           </div>
         </div>
       </section>
@@ -68,7 +68,7 @@
           <span class="icon-replay"></span>
         </button>
       </section>
-      <script type="text/javascript" src="js.js"></script>
+      <script type="text/javascript" src="main.js"></script>
     </main>
 
   </body>

@@ -158,12 +158,14 @@ header a span {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 1;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
-.board p{
+.board-txt{
   margin: 0;
   padding: 0;
   font-size: 40px;
@@ -171,44 +173,37 @@ header a span {
 }
 
 .score-overlay {
-  height: 10%;
+  width: 100%;
+  height: 100%;
   display: none;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 300px;
   z-index: 100;
   margin: auto;
   text-align: center;
+  font-size: 40px;
   font-weight: 700;
+  color: var(--yellow);
   opacity: 0;
-}
-
-.score-overlay:nth-child(2) {
-  animation: scoreMove 0.75s linear;
-}
-
-.score-overlay:nth-child(3) {
-  width: 300px;
-  left: 570px;
-  animation: messageMove 1s linear;
-  animation-delay: 0.7s;
+  animation: scoreMove 1s linear;
 }
 
 @keyframes scoreMove {
   0%{
     opacity: 1;
-    top: 300px;
-    left: 0;
+    top: 200px;
+    left: 50px;
   }50%{
     opacity: 1;
   }100%{
     opacity: 0;
-    top: 100px;
-    left: 95px;
+    top: 0;
+    left: 0;
   }
 }
+
+
 
 @keyframes messageMove {
   0%{
@@ -260,7 +255,7 @@ header a span {
   position: relative;
   left: -400px;
   top: -190px;
-  z-index: 1;
+  z-index: 0;
   background-color: var(--pink);
 }
 
