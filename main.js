@@ -1,4 +1,3 @@
-
 const bt_pause = document.getElementById('pause')
 const bt_play = document.getElementById('play')
 const bt_replay = document.getElementById('replay')
@@ -19,7 +18,6 @@ const message = document.getElementById('score-message')
 
 const storage_max_score = window.localStorage.getItem('puntuacion') || 0
 max_score.textContent = storage_max_score
-
 
 const INITIAL_BALL_DURATION = 2500
 const INITIAL_LEVEL = 1
