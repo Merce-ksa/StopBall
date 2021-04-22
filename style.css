@@ -124,6 +124,9 @@ header a span {
   margin-top: 20px;
 }
 
+.cover-image {
+  display: none;
+}
 .game__content {
   width: 100%;
   height: auto;
